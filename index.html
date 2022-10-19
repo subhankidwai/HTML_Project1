@@ -14,7 +14,7 @@
     <p>Conceptually, you start at the root of a tree; the tree probably has some good leaves and some bad leaves, though it may be that the leaves are all good or all bad. You want to get to a good leaf. At each node, beginning with the root, you choose one of its children to move to, and you keep this up until you get to a leaf.</p>
     <p>Suppose you get to a bad leaf. You can <i>backtrack</i> to continue the search for a good leaf by revoking your <i>most recent</i> choice, and trying out the next option in that set of options. If you run out of options, revoke the choice that got you here, and try another choice at that node. If you end up at the root with no options left, there are no good leaves to be found.</p>
     <p>This needs an example.</p>
-    <img src="https://akarsh-gupta007.github.io/backtracking/treesearch.gif" alt="root tree image">
+    <center><img src="https://akarsh-gupta007.github.io/backtracking/treesearch.gif" alt="root tree image"></center>
     <ol>
         <li>Starting at Root, your options are A and B</li>
         <li>You choose A. At A, your options are C and D. You choose C.</li>
@@ -125,7 +125,7 @@
     <p>For starters, let's do the simplest possible example of backtracking, which is searching an actual tree. We will also use the simplest kind of tree, a binary tree</p>
     <p>For starters, let's do the simplest possible example of backtracking, which is searching an actual tree. We will also use the simplest kind of tree, a binary tree.</p>
     <p>A <b>binary tree</b> is a data structure composed of <b>node</b>. One node is designed as the root node. Each node can reference (point to) zero, one,or, teo other nides, which are called its <b>children</b>. the children are refered to as the <strong>letf child</strong> and/or <strong>rihgt child</strong>. All nodes are reachable (by one or more steps) from the root node, and there are no cycles. For our purposes, although this is not part of the definition of a binary tree, we will say that a node might or might not be a goal node, and will contain its name. The first example in this paper (which we repeat here) shows a binary tree.</p>
-    <img src="https://akarsh-gupta007.github.io/backtracking/treesearch.gif" alt="binary tree image" align="center"></img>
+    <center><img src="https://akarsh-gupta007.github.io/backtracking/treesearch.gif" alt="binary tree image"></img></center>
     <p>Here's a definition of the BinaryTree class:</p>
     <pre style="color:brown ;">
         public class BinaryTree {
@@ -392,61 +392,91 @@
         <li>Jump ahead over exactly one marble of the opposite color, if the space just beyond that marble is clear.</li>
     </ul>
     <p>For example, you could make the following sequence of moves:</p>
+    <table align="center" cellpadding="6">
+        <tbody>
+            <tr>
+                <td><b>Starting Position:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Black moves ahead:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>White jumps:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Black moves ahead:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Black jumps:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>White moves ahead:</b></td>
+                <td>
+                    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver">
+                        <td width="44"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="black-ball.png"></td>
+                        <td width="44"><img src="white-ball.png"></td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><b>stuck!</b></td>
+            </tr>
+        </tbody>
+    </table>
     
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
-    <table border="1" cellspacing="0" cellpadding="6" bgcolor="silver" align="center">
-        <tr>
-            <td width="42"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/black-ball.gif"></td>
-            <td width="42"><img src="https://akarsh-gupta007.github.io/backtracking/white-ball.gif"></td>
-        </tr>
-    </table><br>
+
+
+
+
+
     <p>Now to the program. The main program will initialize the board, and call a recursive backtracking routine to attempt to solve the puzzle. The backtracking routine will either succeed and print out a winning path, or it will fail, and the main program will have to print out the bad news.</p>
     <p>The backtracking method is named solvableand returns a boolean. In solvable we shall need to check whether we are at a leaf, which in this case means a position from which no further moves are possible. This isn't so easy.</p>
     <p>Each possible move will result in a new board position, and these new board positions are the children of the current board position. Hence to find the children of a node (that is, of a board position), we need only find the possible moves from that node. Remember that it is also highly desirable to find an ordering on these possible moves</p>
@@ -480,7 +510,7 @@
     </pre>
     <p>Along with canMove and makeMove, we are using methods puzzleSolved And printBoard with meanings that should be obvious.</p>
     <p>Here is some output from the program:</p>
-<pre align="left" style="font-size:18px ;"><b>
+    <pre align="left" style="font-size:18px;"><b>
 <i><font color="blue">16.</font></i>  WHITE  WHITE  WHITE  _____  BLACK  BLACK  BLACK
 <i><font color="blue">15.</font></i>  WHITE  WHITE  WHITE  BLACK  _____  BLACK  BLACK
 <i><font color="blue">14.</font></i>  WHITE  WHITE  _____  BLACK  WHITE  BLACK  BLACK
